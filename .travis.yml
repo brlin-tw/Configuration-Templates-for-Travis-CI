@@ -37,7 +37,7 @@ sudo: false
 dist: trusty
 
 ### Addons(?)
-addons:
+#addons:
   # APT addon allows container build to install limited software sources and packages to the system in Travis CI's whitelist
   #apt:
     # Software sources to be added
