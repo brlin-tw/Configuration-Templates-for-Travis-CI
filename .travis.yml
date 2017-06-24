@@ -23,9 +23,9 @@ git:
 
 ### Limit Git branches to be include in continuous integration, by default all branches with the .travis.yml file will be included
 ### https://docs.travis-ci.com/user/customizing-the-build/#Building-Specific-Branches
-branches:
+#branches:
   # Black-listing approach
-  except: true
+  #except: 
 #   - no-ci
 
 ## Build Environment Specification
@@ -39,24 +39,24 @@ dist: trusty
 ### Addons(?)
 addons:
   # APT addon allows container build to install limited software sources and packages to the system in Travis CI's whitelist
-  apt:
+  #apt:
     # Software sources to be added
     # https://github.com/travis-ci/apt-source-whitelist
-    sources: true
+    #sources: 
     #- ubuntu-toolchain-r-test
 
     # Software packages to be installed
-    packages: true
+    #packages: 
     #- libpng12-dev
 
   # Hostname can be customized via hosts addon
   # https://docs.travis-ci.com/user/customizing-the-build/#Custom-Hostnames
-  hosts: true
+  #hosts: true
   #- mysite.com
 
 ### Services pre-installed in the CI environment to start up
 ### https://docs.travis-ci.com/user/database-setup/#Starting-Services
-services: true
+#services: 
 #- mysql
 
 ## Caches
