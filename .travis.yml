@@ -19,7 +19,7 @@ git:
   submodule: true
   # Whether to download Git Large File Storage assets
   # https://docs.travis-ci.com/user/customizing-the-build/#Git-LFS-Skip-Smudge
-  lfs_skip_smudge: true
+  lfs_skip_smudge: false
 
 ### Limit Git branches to be include in continuous integration, by default all branches with the .travis.yml file will be included
 ### https://docs.travis-ci.com/user/customizing-the-build/#Building-Specific-Branches
