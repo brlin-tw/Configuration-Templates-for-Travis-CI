@@ -1,6 +1,7 @@
 # Travis CI 設定檔範本<br>Configuration Templates for Travis CI
 This is a customized configuration template of the Travis CI continuation integration service to help people initialize their projects
 
+[![Build Status](https://travis-ci.org/Lin-Buo-Ren/Configuration-Templates-for-Travis-CI.svg?branch=master)](https://travis-ci.org/Lin-Buo-Ren/Configuration-Templates-for-Travis-CI)  
 <https://github.com/Lin-Buo-Ren/Configuration-Templates-for-Travis-CI>
 
 ## 原作者<br>Original Author
