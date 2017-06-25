@@ -79,8 +79,8 @@ init(){
 					"%s"\
 					"${answer}"\
 					| tr\
-						'[:upper:]'\
-						'[:lower:]'
+						"[:upper:]"\
+						"[:lower:]"
 			)"
 
 			if [ "${answer}" != "n" ] && [ "${answer}" != "y" ]; then
