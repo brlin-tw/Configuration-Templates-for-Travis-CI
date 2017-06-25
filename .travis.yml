@@ -48,7 +48,7 @@ addons:
     # Software packages to be installed
     packages: 
     - realpath # script dependencies
-    - yamllint
+    - python-pip # for yamllint
     - cabal-install
     - ghc
 
@@ -86,6 +86,9 @@ install:
 - ./"Utilities for Travis CI/Build and Setup ShellCheck's Latest Release.bash"
 - PATH=${HOME}/.cabal/bin
 
+- ./"Utilities for Travis CI/Setup yamllint in Ubuntu lesser than 16.04.bash"
+- PATH=${HOME}/.local/bin:${PATH}
+
 ### Prepartion before building?
 before_script: 
 - yamllint *.yml .*.yml
@@ -101,6 +104,7 @@ before_cache:
 
 ### Caches non-variating contents to speed up build
 cache:
+  pip: true
   directories:
   - $HOME/.cabal
 
