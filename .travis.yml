@@ -84,10 +84,10 @@ install:
 #### Sometimes dependencies needs to be build from source code and install/setup to use it
 #### https://docs.travis-ci.com/user/installing-dependencies/#Installing-Projects-from-Source
 - ./"Utilities for Travis CI/Build and Setup ShellCheck's Latest Release.bash" --without-root
-- PATH=${HOME}/.cabal/bin
+- PATH="${HOME}/.cabal/bin:${PATH}"
 
 - ./"Utilities for Travis CI/Setup yamllint in Ubuntu lesser than 16.04.bash"
-- PATH=${HOME}/.local/bin:${PATH}
+- PATH="${HOME}/.local/bin:${PATH}"
 
 ### Prepartion before building?
 before_script: 
