@@ -83,7 +83,7 @@ install:
 
 #### Sometimes dependencies needs to be build from source code and install/setup to use it
 #### https://docs.travis-ci.com/user/installing-dependencies/#Installing-Projects-from-Source
-- ./"Utilities for Travis CI/Build and Setup ShellCheck's Latest Release.bash"
+- ./"Utilities for Travis CI/Build and Setup ShellCheck's Latest Release.bash" --without-root
 - PATH=${HOME}/.cabal/bin
 
 - ./"Utilities for Travis CI/Setup yamllint in Ubuntu lesser than 16.04.bash"
