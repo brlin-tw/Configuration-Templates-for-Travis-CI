@@ -58,7 +58,11 @@ init(){
 	fi
 
 	printf "正在安裝範本檔案……\n"
-	cp --force --verbose "${RUNTIME_EXECUTABLE_DIRECTORY}"/*.bash "${XDG_TEMPLATES_DIR}"
+	cp\
+		--force\
+		--verbose\
+		"${RUNTIME_EXECUTABLE_DIRECTORY}"/.travis.yml\
+		"${XDG_TEMPLATES_DIR}"
 	printf "\n" # Seperate output from different operations
 
 	while :; do
