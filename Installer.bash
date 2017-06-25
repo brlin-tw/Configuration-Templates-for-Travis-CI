@@ -61,7 +61,7 @@ init(){
 	cp\
 		--force\
 		--verbose\
-		"${RUNTIME_EXECUTABLE_DIRECTORY}"/.travis.yml\
+		"${RUNTIME_EXECUTABLE_DIRECTORY}"/*.travis.yml\
 		"${XDG_TEMPLATES_DIR}"
 	printf "\n" # Seperate output from different operations
 
