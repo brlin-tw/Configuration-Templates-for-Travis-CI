@@ -1,0 +1,9 @@
+[submodule "GNU Bash Automatic Checking Program for Git Projects"]
+	path = GNU Bash Automatic Checking Program for Git Projects
+	url = https://github.com/Lin-Buo-Ren/GNU-Bash-Automatic-Checking-Program-for-Git-Projects.git
+[submodule "Git Pre-commit Hook for GNU Bash Projects"]
+	path = Git Pre-commit Hook for GNU Bash Projects
+	url = https://github.com/Lin-Buo-Ren/Git_Pre-commit_Hook_for_GNU_Bash_Projects
+[submodule "Clean Filter for GNU Bash Scripts"]
+	path = Clean Filter for GNU Bash Scripts
+	url = https://github.com/Lin-Buo-Ren/Clean-Filter-for-GNU-Bash-Scripts

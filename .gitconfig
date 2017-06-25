@@ -1,0 +1,4 @@
+# Project-specific Git Configuration
+# Documentation: git-config manpage
+[filter "bash"]
+	clean = "\"Clean Filter for GNU Bash Scripts/Clean Filter for GNU Bash Script.bash\""
