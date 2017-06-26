@@ -61,8 +61,6 @@ addons:
 #services:
 #- mysql
 
-## Caches
-
 ## Build Cycle Phases
 ### Run commands before install phase
 before_install: true
