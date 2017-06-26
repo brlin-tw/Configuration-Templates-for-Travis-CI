@@ -61,8 +61,8 @@ init(){
 	cp\
 		--force\
 		--verbose\
-		"${RUNTIME_EXECUTABLE_DIRECTORY}"/*.travis.yml\
-		"${XDG_TEMPLATES_DIR}"
+		"${RUNTIME_EXECUTABLE_DIRECTORY}"/template.travis.yml\
+		"${XDG_TEMPLATES_DIR}/travis.yml"
 	printf "\n" # Seperate output from different operations
 
 	while :; do
@@ -101,7 +101,12 @@ init(){
 ## Attempt to remove old installation files
 remove_old_installation(){
 	printf "正在清除過去安裝範本（如果有的話）……\n"
-	rm --verbose --force "${XDG_TEMPLATES_DIR}"/.travis.yml || true
+	rm\
+		--verbose\
+		--force\
+		"${XDG_TEMPLATES_DIR}"/.travis.yml\
+		"${XDG_TEMPLATES_DIR}"/*travis.yml\
+		|| true
 	printf "完成\n"
 
 	printf "\n" # Additional blank line for separating output
