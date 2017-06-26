@@ -25,7 +25,7 @@ git:
 ### https://docs.travis-ci.com/user/customizing-the-build/#Building-Specific-Branches
 #branches:
   # Black-listing approach
-  #except: 
+  #except:
     #- no-ci
 
 ## Build Environment Specification
@@ -42,11 +42,11 @@ dist: trusty
   #apt:
     # Software sources to be added
     # https://github.com/travis-ci/apt-source-whitelist
-    #sources: 
+    #sources:
     #- ubuntu-toolchain-r-test
 
     # Software packages to be installed
-    #packages: 
+    #packages:
     #- libpng12-dev
 
   # Hostname can be customized via hosts addon
@@ -56,7 +56,7 @@ dist: trusty
 
 ### Services pre-installed in the CI environment to start up
 ### https://docs.travis-ci.com/user/database-setup/#Starting-Services
-#services: 
+#services:
 #- mysql
 
 ## Caches

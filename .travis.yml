@@ -24,8 +24,7 @@ git:
 ### Limit Git branches to be include in continuous integration, by default all branches with the .travis.yml file will be included
 ### https://docs.travis-ci.com/user/customizing-the-build/#Building-Specific-Branches
 #branches:
-  # Black-listing approach
-  #except: 
+  #except:
     #- no-ci
 
 ## Build Environment Specification
@@ -42,11 +41,11 @@ addons:
   apt:
     # Software sources to be added
     # https://github.com/travis-ci/apt-source-whitelist
-    #sources: 
+    #sources:
     #- ubuntu-toolchain-r-test
 
     # Software packages to be installed
-    packages: 
+    packages:
     - realpath # script dependencies
     - python-pip # for yamllint
     - cabal-install
@@ -59,7 +58,7 @@ addons:
 
 ### Services pre-installed in the CI environment to start up
 ### https://docs.travis-ci.com/user/database-setup/#Starting-Services
-#services: 
+#services:
 #- mysql
 
 ## Caches
@@ -90,7 +89,7 @@ install:
 - PATH="${HOME}/.local/bin:${PATH}"
 
 ### Prepartion before building?
-before_script: 
+before_script:
 - yamllint *.yml .*.yml
 - ./"GNU Bash Automatic Checking Program for Git Projects/GNU Bash Automatic Checking Program for Git Projects.bash"
 
