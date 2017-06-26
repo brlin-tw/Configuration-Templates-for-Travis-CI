@@ -60,6 +60,7 @@ dist: trusty
 #- mysql
 
 ## Build Cycle Phases
+## NOTE: Enable each phases by removing the `true` command after it
 ### Run commands before install phase
 before_install: true
 # Configure any third-party software sources(requires VM build environment)
