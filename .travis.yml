@@ -1,10 +1,9 @@
----
-Travis CI Configuration
-https://docs.travis-ci.com
-This file is in YAML data serialization language.
-http://yaml.org/
-This file is based on Configuration Templates for Travis CI
-https://github.com/Lin-Buo-Ren/Configuration-Templates-for-Travis-CI
+# Travis CI Configuration
+# https://docs.travis-ci.com
+# This file is in YAML data serialization language.
+# http://yaml.org/
+# This file is based on Configuration Templates for Travis CI
+# https://github.com/Lin-Buo-Ren/Configuration-Templates-for-Travis-CI
 ---
 ## Project-specific settings
 ### Main programming language used in the project
