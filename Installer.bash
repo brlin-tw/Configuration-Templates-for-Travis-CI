@@ -74,14 +74,7 @@ init(){
 			break
 		else
 			# lowercasewize
-			answer="$(
-				printf\
-					"%s"\
-					"${answer}"\
-					| tr\
-						"[:upper:]"\
-						"[:lower:]"
-			)"
+			answer="${answer,,?}"
 
 			if [ "${answer}" != "n" ] && [ "${answer}" != "y" ]; then
 				# wrong format, re-ask
