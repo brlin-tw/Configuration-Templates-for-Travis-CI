@@ -2,5 +2,5 @@
 Name=.travis.yml
 Type=Link
 Icon=application/x-yaml
-URL=template.travis.yml
+URL=travis.yml
 # Comment=
