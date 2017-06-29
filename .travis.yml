@@ -97,7 +97,7 @@ script: true
 
 ### You can remove files that are not useful for caching here
 before_cache:
-- rm $HOME/.cabal/logs/build.log
+- rm --force $HOME/.cabal/logs/build.log
 
 ### Caches non-variating contents to speed up build
 cache:
