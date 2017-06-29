@@ -80,7 +80,7 @@ install: true
 #### Sometimes dependencies needs to be build from source code and install/setup to use it
 #### https://docs.travis-ci.com/user/installing-dependencies/#Installing-Projects-from-Source
 
-### Prepartion before building?
+### Preparation before building?
 before_script: true
 #- ./prepare-building
 
