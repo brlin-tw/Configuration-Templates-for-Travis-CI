@@ -94,10 +94,10 @@ script: true
 before_cache: true
 #- rm $HOME/.cabal/logs/build.log
 
-### Caches nonvariating contents to speed up build
+### Caches non-variating contents to speed up build
 #cache:
   #directories:
-  #- $HOME/.cabal-
+  #- $HOME/.cabal
 
 ### Commands if build phase fails
 after_failure: true
