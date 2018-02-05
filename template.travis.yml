@@ -39,8 +39,8 @@ dist: trusty
 ### Addons
 #addons:
   # apt_packages addon allows container build to install limited software sources and packages in the following whitelists to the system using APT:
-	# https://github.com/travis-ci/apt-source-whitelist
-	# https://github.com/travis-ci/apt-package-whitelist
+  # https://github.com/travis-ci/apt-source-whitelist
+  # https://github.com/travis-ci/apt-package-whitelist
   #apt:
     # Software sources to be added
     # https://github.com/travis-ci/apt-source-whitelist
