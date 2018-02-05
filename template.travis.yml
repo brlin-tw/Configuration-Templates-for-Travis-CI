@@ -36,9 +36,11 @@ sudo: false
 ### Selection of ubuntu release for build environment
 dist: trusty
 
-### Addons(?)
+### Addons
 #addons:
-  # APT addon allows container build to install limited software sources and packages to the system in Travis CI's whitelist
+  # apt_packages addon allows container build to install limited software sources and packages in the following whitelists to the system using APT:
+	# https://github.com/travis-ci/apt-source-whitelist
+	# https://github.com/travis-ci/apt-package-whitelist
   #apt:
     # Software sources to be added
     # https://github.com/travis-ci/apt-source-whitelist
@@ -92,10 +94,10 @@ script: true
 before_cache: true
 #- rm $HOME/.cabal/logs/build.log
 
-### Caches non-variating contents to speed up build
+### Caches nonvariating contents to speed up build
 #cache:
   #directories:
-  #- $HOME/.cabal
+  #- $HOME/.cabal-
 
 ### Commands if build phase fails
 after_failure: true
