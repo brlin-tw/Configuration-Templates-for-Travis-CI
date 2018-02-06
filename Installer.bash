@@ -36,7 +36,7 @@ init(){
 
 	if ! process_commandline_parameters; then
 		printf\
-			"Error: %s: Invalid command-line parameters.\n"\
+			'Error: %s: Invalid command-line parameters.\n'\
 			"${FUNCNAME[0]}"\
 			1>&2
 		print_help
@@ -44,29 +44,29 @@ init(){
 	fi
 
 	if ! determine_install_directory install_directory; then
-		printf "錯誤：無法判斷安裝目錄。安裝程式無法繼續運行\n" 1>&2
+		printf '錯誤：無法判斷安裝目錄。安裝程式無法繼續運行\n' 1>&2
 		exit "${COMMON_RESULT_FAILURE}"
 	else
-		printf "將會安裝到：%s\n" "install_directory"
-		printf "\n"
+		printf '將會安裝到：%s\n' "${install_directory}"
+		printf '\n'
 	fi
 
 	remove_old_installation
 	if [ "${global_just_uninstall}" -eq "0" ]; then
-		printf "已解除安裝軟體\n"
-		exit "0"
+		printf '已解除安裝軟體\n'
+		exit 0
 	fi
 
-	printf "正在安裝範本檔案……\n"
+	printf '正在安裝範本檔案……\n'
 	cp\
 		--force\
 		--verbose\
 		"${RUNTIME_EXECUTABLE_DIRECTORY}"/template.travis.yml\
 		"${XDG_TEMPLATES_DIR}/travis.yml"
-	printf "\n" # Seperate output from different operations
+	printf '\n' # Seperate output from different operations
 
 	while :; do
-		printf "請問是否安裝 KDE 所需的範本設定（警告：會造成 GNOME Files 等應用軟體中出現非預期的範本項目）(y/N)？"
+		printf '請問是否安裝 KDE 所需的範本設定（警告：會造成 GNOME Files 等應用軟體中出現非預期的範本項目）(y/N)？'
 		declare answer
 		read -r answer
 
@@ -76,41 +76,41 @@ init(){
 			# lowercasewize
 			answer="${answer,,?}"
 
-			if [ "${answer}" != "n" ] && [ "${answer}" != "y" ]; then
+			if [ "${answer}" != 'n' ] && [ "${answer}" != 'y' ]; then
 				# wrong format, re-ask
 				continue
-			elif [ "${answer}" == "n" ]; then
+			elif [ "${answer}" == 'n' ]; then
 				break
 			else
-				printf "正在設定適用於 KDE 的範本……\n"
+				printf '正在設定適用於 KDE 的範本……\n'
 				cp\
 					--force\
 					--verbose\
-					"Template Setup for KDE/"*.desktop\
+					'Template Setup for KDE/'*.desktop\
 					"${XDG_TEMPLATES_DIR}"
 				break
 			fi
 		fi
 	done; unset answer
 
-	printf "已完成安裝。\n"
+	printf '已完成安裝。\n'
 
 	exit 0
 }; declare -fr init
 
 ## Attempt to remove old installation files
 remove_old_installation(){
-	printf "正在清除過去安裝範本（如果有的話）……\n"
+	printf '正在清除過去安裝範本（如果有的話）……\n'
 	rm\
 		--verbose\
 		--force\
 		"${XDG_TEMPLATES_DIR}"/.travis.yml\
 		"${XDG_TEMPLATES_DIR}"/*travis.yml\
 		|| true
-	printf "完成\n"
+	printf '完成\n'
 
-	printf "\n" # Additional blank line for separating output
-	return "0"
+	printf '\n' # Additional blank line for separating output
+	return 0
 }
 readonly -f remove_old_installation
 
@@ -125,11 +125,11 @@ determine_install_directory(){
 
 		if [ -v XDG_TEMPLATES_DIR ]; then
 			install_directory_ref="${XDG_TEMPLATES_DIR}"
-			return "0"
+			return 0
 		fi
 	fi
 
-	printf "%s - 警告 - 安裝程式找不到 user-dirs 設定，汰退到預設目錄\n" "${FUNCNAME[0]}"
+	printf '%s - 警告 - 安裝程式找不到 user-dirs 設定，汰退到預設目錄\n' "${FUNCNAME[0]}"
 
 	if [ ! -d "${HOME}"/Templates ]; then
 		return "${COMMON_RESULT_FAILURE}"
@@ -142,7 +142,7 @@ determine_install_directory(){
 ## Traps: Functions that are triggered when certain condition occurred
 ## Shell Builtin Commands » Bourne Shell Builtins » trap
 trap_errexit(){
-	printf "An error occurred and the script is prematurely aborted\n" 1>&2
+	printf 'An error occurred and the script is prematurely aborted\n' 1>&2
 	return 0
 }; declare -fr trap_errexit; trap trap_errexit ERR
 
@@ -153,16 +153,16 @@ trap_exit(){
 trap_return(){
 	local returning_function="${1}"
 
-	printf "DEBUG: %s: returning from %s\n" "${FUNCNAME[0]}" "${returning_function}" 1>&2
+	printf 'DEBUG: %s: returning from %s\n' "${FUNCNAME[0]}" "${returning_function}" 1>&2
 }; declare -fr trap_return
 
 trap_interrupt(){
-	printf "Recieved SIGINT, script is interrupted.\n" 1>&2
+	printf 'Recieved SIGINT, script is interrupted.\n' 1>&2
 	return 0
 }; declare -fr trap_interrupt; trap trap_interrupt INT
 
 print_help(){
-	printf "Currently no help messages are available for this program\n" 1>&2
+	printf 'Currently no help messages are available for this program\n' 1>&2
 	return 0
 }; declare -fr print_help;
 
@@ -192,7 +192,7 @@ process_commandline_parameters() {
 					enable_debug="Y"
 					;;
 				*)
-					printf "ERROR: Unknown command-line argument \"%s\"\n" "${parameters[0]}" >&2
+					printf 'ERROR: Unknown command-line argument "%s"\n' "${parameters[0]}" >&2
 					return 1
 					;;
 			esac
