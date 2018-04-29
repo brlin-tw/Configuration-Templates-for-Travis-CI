@@ -79,7 +79,17 @@ after_failure: true
 ### Commands if build phase successes
 after_success: true
 
-before_deploy: true
+before_deploy:
+- ./Release.bash
+
+deploy:
+  provider: releases
+  api_key: "$GITHUB_DEPLOY_KEY_HIDDEN"
+  file_glob: true
+  file: "template-*.travis.yml"
+  skip_cleanup: true
+  on:
+    tags: true
 
 after_deploy: true
 
