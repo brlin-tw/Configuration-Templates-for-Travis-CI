@@ -16,7 +16,7 @@ git:
   depth: 3
   # Whether or not to clone the submodules
   # https://docs.travis-ci.com/user/customizing-the-build/#Git-Submodules
-  submodule: true
+  submodule: false
   # Whether to download Git Large File Storage assets
   # https://docs.travis-ci.com/user/customizing-the-build/#Git-LFS-Skip-Smudge
   lfs_skip_smudge: false
@@ -62,14 +62,9 @@ addons:
   #- mysite.com
 
 ### You can run custom commands before the installation step
-before_install: true
-# Configure any third-party software sources(requires VM build environment)
-#- sudo add-apt-repository universe
-#- sudo add-apt-repository ppa:libreoffice/ppa
-
-# Update package cache if package installing is required(requires VM build environment)
-# https://docs.travis-ci.com/user/installing-dependencies/#Installing-Packages-from-a-custom-APT-repository
-#- sudo apt-get -qq update
+before_install:
+- git submodule init 'Utilities for Travis CI' 'GNU Bash Automatic Checking Program for Git Projects'
+- git submodule update --depth=1
 
 ### Install/Setup any required dependencies used in continuous integration
 ### https://docs.travis-ci.com/user/installing-dependencies/
