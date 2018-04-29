@@ -55,8 +55,6 @@ addons:
     packages:
     - realpath # script dependencies
     - python-pip # for yamllint
-    - cabal-install
-    - ghc
 
   # Hostname can be customized via hosts addon
   # https://docs.travis-ci.com/user/customizing-the-build/#Custom-Hostnames
@@ -81,8 +79,8 @@ install:
 
 #### Sometimes dependencies needs to be build from source code and install/setup to use it
 #### https://docs.travis-ci.com/user/installing-dependencies/#Installing-Projects-from-Source
-- ./"Utilities for Travis CI/Build and Setup ShellCheck's Latest Release.bash" --without-root
-- PATH="${HOME}/.cabal/bin:${PATH}"
+- ./"Utilities for Travis CI/Setup ShellCheck's Latest Release without Re-building.bash"
+- PATH="${HOME}/Software/shellcheck-stable:${PATH}"
 
 - ./"Utilities for Travis CI/Setup yamllint in Ubuntu lesser than 16.04.bash"
 - PATH="${HOME}/.local/bin:${PATH}"
@@ -97,14 +95,13 @@ script: true
 #- ./build
 
 ### You can remove files that are not needed for caching here
-before_cache:
-- rm --force $HOME/.cabal/logs/build.log
+before_cache: true
 
 ### Caches non-variating contents to speed up build
 cache:
   pip: true
   directories:
-  - $HOME/.cabal
+  - $HOME/Software
 
 ### Commands if build phase fails
 after_failure: true
