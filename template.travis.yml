@@ -6,6 +6,7 @@
 # https://github.com/Lin-Buo-Ren/Configuration-Templates-for-Travis-CI
 ## Project-specific settings
 ### Main programming language used in the project
+### https://docs.travis-ci.com/user/languages
 language: undefined
 
 ### Git related settings
@@ -35,6 +36,15 @@ sudo: false
 ### Selection of ubuntu release for build environment
 dist: trusty
 
+### Services pre-installed in the CI environment to start up
+### https://docs.travis-ci.com/user/database-setup/#Starting-Services
+#services:
+#- mysql
+
+## The Build Lifecycle
+## https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
+## NOTE: Enable each phases by removing the `true` command after each key's colon
+
 ### Addons
 #addons:
   # apt_packages addon allows container build to install limited software sources and packages in the following whitelists to the system using APT:
@@ -55,14 +65,7 @@ dist: trusty
   #hosts: true
   #- mysite.com
 
-### Services pre-installed in the CI environment to start up
-### https://docs.travis-ci.com/user/database-setup/#Starting-Services
-#services:
-#- mysql
-
-## Build Cycle Phases
-## NOTE: Enable each phases by removing the `true` command after it
-### Run commands before install phase
+### You can run custom commands before the installation step
 before_install: true
 # Configure any third-party software sources(requires VM build environment)
 #- sudo add-apt-repository universe
@@ -81,7 +84,7 @@ install: true
 #### Sometimes dependencies needs to be build from source code and install/setup to use it
 #### https://docs.travis-ci.com/user/installing-dependencies/#Installing-Projects-from-Source
 
-### Preparation before building?
+### You can run custom commands before the script/build step
 before_script: true
 #- ./prepare-building
 
@@ -89,7 +92,7 @@ before_script: true
 script: true
 #- ./build
 
-### You can remove files that are not useful for caching here
+### You can remove files that are not needed for caching here
 before_cache: true
 #- rm $HOME/.cabal/logs/build.log
 
@@ -104,6 +107,7 @@ after_failure: true
 ### Commands if build phase successes
 after_success: true
 
+### You can run custom commands before the deploy step
 before_deploy: true
 
 ### Software deployment phase
@@ -118,6 +122,8 @@ before_deploy: true
        #branch: master
        #tags: true
 
+### You can run custom commands after the deploy step
 after_deploy: true
 
+### You can run custom commands after everything is done
 after_script: true

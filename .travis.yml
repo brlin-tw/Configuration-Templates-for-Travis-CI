@@ -35,6 +35,13 @@ sudo: false
 ### Selection of ubuntu release for build environment
 dist: trusty
 
+### Services pre-installed in the CI environment to start up
+### https://docs.travis-ci.com/user/database-setup/#Starting-Services
+#services:
+#- mysql
+
+## The Build Lifecycle
+## https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
 ### Addons(?)
 addons:
   # APT addon allows container build to install limited software sources and packages to the system in Travis CI's whitelist
@@ -56,13 +63,7 @@ addons:
   #hosts: true
   #- mysite.com
 
-### Services pre-installed in the CI environment to start up
-### https://docs.travis-ci.com/user/database-setup/#Starting-Services
-#services:
-#- mysql
-
-## Build Cycle Phases
-### Run commands before install phase
+### You can run custom commands before the installation step
 before_install: true
 # Configure any third-party software sources(requires VM build environment)
 #- sudo add-apt-repository universe
@@ -86,7 +87,7 @@ install:
 - ./"Utilities for Travis CI/Setup yamllint in Ubuntu lesser than 16.04.bash"
 - PATH="${HOME}/.local/bin:${PATH}"
 
-### Prepartion before building?
+### You can run custom commands before the script/build step
 before_script:
 - yamllint *.yml .*.yml
 - ./"GNU Bash Automatic Checking Program for Git Projects/GNU Bash Automatic Checking Program for Git Projects.bash"
@@ -95,7 +96,7 @@ before_script:
 script: true
 #- ./build
 
-### You can remove files that are not useful for caching here
+### You can remove files that are not needed for caching here
 before_cache:
 - rm --force $HOME/.cabal/logs/build.log
 
