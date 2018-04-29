@@ -1,0 +1,8 @@
+# Version Tracking Ignore Rules for Git VCS
+# https://git-scm.com/docs/gitignore
+
+## Do track Git settings
+!.git*
+
+## Ignore distributed releases
+/template-v*.travis.yml
