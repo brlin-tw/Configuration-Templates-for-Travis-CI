@@ -16,7 +16,7 @@ git:
   depth: 3
   # Whether or not to clone the submodules
   # https://docs.travis-ci.com/user/customizing-the-build/#Git-Submodules
-  submodule: false
+  submodules: false
   # Whether to download Git Large File Storage assets
   # https://docs.travis-ci.com/user/customizing-the-build/#Git-LFS-Skip-Smudge
   lfs_skip_smudge: false
