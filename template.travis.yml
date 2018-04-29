@@ -4,7 +4,6 @@
 # http://yaml.org/
 # This file is based on Configuration Templates for Travis CI
 # https://github.com/Lin-Buo-Ren/Configuration-Templates-for-Travis-CI
----
 ## Project-specific settings
 ### Main programming language used in the project
 language: undefined
