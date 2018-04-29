@@ -21,12 +21,6 @@ git:
   # https://docs.travis-ci.com/user/customizing-the-build/#Git-LFS-Skip-Smudge
   lfs_skip_smudge: false
 
-### Limit Git branches to be include in continuous integration, by default all branches with the .travis.yml file will be included
-### https://docs.travis-ci.com/user/customizing-the-build/#Building-Specific-Branches
-#branches:
-  #except:
-    #- no-ci
-
 ## Build Environment Specification
 ### Whether to use faster container build(false) or flexible VM build(required)
 ### NOTE: `sudo` is not available in container build!
@@ -35,31 +29,15 @@ sudo: false
 ### Selection of ubuntu release for build environment
 dist: trusty
 
-### Services pre-installed in the CI environment to start up
-### https://docs.travis-ci.com/user/database-setup/#Starting-Services
-#services:
-#- mysql
-
 ## The Build Lifecycle
 ## https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
 ### Addons(?)
 addons:
-  # APT addon allows container build to install limited software sources and packages to the system in Travis CI's whitelist
   apt:
-    # Software sources to be added
-    # https://github.com/travis-ci/apt-source-whitelist
-    #sources:
-    #- ubuntu-toolchain-r-test
-
     # Software packages to be installed
     packages:
     - realpath # script dependencies
     - python-pip # for yamllint
-
-  # Hostname can be customized via hosts addon
-  # https://docs.travis-ci.com/user/customizing-the-build/#Custom-Hostnames
-  #hosts: true
-  #- mysite.com
 
 ### You can run custom commands before the installation step
 before_install:
@@ -69,8 +47,6 @@ before_install:
 ### Install/Setup any required dependencies used in continuous integration
 ### https://docs.travis-ci.com/user/installing-dependencies/
 install:
-#### Traditional package installing(requires VM build environment)
-#- sudo apt-get install
 
 #### Sometimes dependencies needs to be build from source code and install/setup to use it
 #### https://docs.travis-ci.com/user/installing-dependencies/#Installing-Projects-from-Source
@@ -87,7 +63,6 @@ before_script:
 
 ### Put your build scripts here
 script: true
-#- ./build
 
 ### You can remove files that are not needed for caching here
 before_cache: true
@@ -105,18 +80,6 @@ after_failure: true
 after_success: true
 
 before_deploy: true
-
-### Software deployment phase
-### https://docs.travis-ci.com/user/deployment/
-#deploy:
-  #- provider: undefined
-     #on:
-       #branch: master
-       #tags: true
-  #- provider: undefined
-     #on:
-       #branch: master
-       #tags: true
 
 after_deploy: true
 
