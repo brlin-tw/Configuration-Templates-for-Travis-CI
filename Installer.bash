@@ -109,6 +109,11 @@ init(){
 	printf -- \
 		'Installing template files...\n'
 	install \
+		--directory \
+		--verbose \
+		"${install_directory_xdg}"
+	install \
+		--mode='u=rw,go=r' \
 		--verbose \
 		"${RUNTIME_EXECUTABLE_DIRECTORY}/template.travis.yml" \
 		"${install_directory_xdg}/travis.yml"
@@ -138,10 +143,16 @@ init(){
 			else
 				printf 'Configuring templates for KDE...\n'
 				install \
+					--directory \
+					--verbose \
+					"${HOME}/.local/share/templates"
+				install \
+					--mode='u=rw,go=r' \
 					--verbose \
 					"${RUNTIME_EXECUTABLE_DIRECTORY}/template.travis.yml" \
 					"${HOME}/.local/share/templates/travis.yml"
 				install \
+					--mode='u=rw,go=r' \
 					--verbose \
 					"${RUNTIME_EXECUTABLE_DIRECTORY}/Template Setup for KDE"/*.desktop \
 					"${HOME}/.local/share/templates"
