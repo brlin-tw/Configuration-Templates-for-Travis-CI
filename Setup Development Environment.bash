@@ -40,42 +40,30 @@ init(){
 
 	export GIT_DIR="${RUNTIME_EXECUTABLE_DIRECTORY}/.git"
 	export GIT_WORK_TREE="${RUNTIME_EXECUTABLE_DIRECTORY}"
+	cd "${GIT_WORK_TREE}"
+
+	printf 'Fetching submodules..'
+	git submodule init 'Clean Filter for GNU Bash Scripts'
+	git submodule update --depth=30
+	(
+		unset GIT_DIR GIT_WORK_TREE
+		cd 'Clean Filter for GNU Bash Scripts'
+		git submodule init 'Code Formatters and Beautifiers/the Bash Script Beautifier'
+		git submodule update --depth=30
+	)
 
 	printf 'Setting Project-specific Git configuration...'
 	git config include.path ../.gitconfig\
 		&& printf 'done\n'
 
 	printf 'Setting Git Hooks...'
-	declare -r precommit_hook_path='Git Pre-commit Hook for GNU Bash Projects/Git Pre-commit Hook for GNU Bash Projects.bash'
-	if [ ! -x "${precommit_hook_path}" ]; then
-		printf \
-			'\n%s: Error: Unable to locate the pre-commit hook'\
-			"${RUNTIME_EXECUTABLE_NAME}" 1>&2
-		exit 1
+	if ! command -v pre-commit &>/dev/null; then
+		printf -- \
+			'%s: Warning: pre-commit(https://pre-commit.com) is not installed, skipping setup.\n' \
+			"${RUNTIME_EXECUTABLE_NAME}"
+	else
+		pre-commit install
 	fi
-	ln \
-		--symbolic\
-		--relative\
-		--force\
-		--verbose\
-		"${precommit_hook_path}"\
-		"${GIT_DIR}/hooks/pre-commit"\
-		&& printf 'done\n'
-
-	printf 'Fetching submodules..'
-	git submodule update --init --recursive\
-		&& printf 'done\n'\
-		|| printf 'failed\n'
-
-	printf 'Activate Git smudge filter...\n'
-	declare -i result
-	git stash save &>/dev/null\
-		|| true
-	rm "${GIT_DIR}/index" >/dev/null \
-		&& git checkout HEAD -- "$(git rev-parse --show-toplevel)" >/dev/null
-	git stash pop &>/dev/null\
-		|| true
-	printf 'done.\n'
 
 	exit 0
 }; declare -fr init

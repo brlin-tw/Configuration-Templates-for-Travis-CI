@@ -37,29 +37,25 @@ addons:
     # Software packages to be installed
     packages:
     - realpath # script dependencies
-    - python-pip # for yamllint
 
 ### You can run custom commands before the installation step
 before_install:
-- git submodule init 'Utilities for Travis CI' 'GNU Bash Automatic Checking Program for Git Projects'
-- git submodule update --depth=1
+- git submodule init 'Utilities for Travis CI'
+- git submodule update --depth=30
 
 ### Install/Setup any required dependencies used in continuous integration
 ### https://docs.travis-ci.com/user/installing-dependencies/
 install:
-
 #### Sometimes dependencies needs to be build from source code and install/setup to use it
 #### https://docs.travis-ci.com/user/installing-dependencies/#Installing-Projects-from-Source
 - ./"Utilities for Travis CI/Setup ShellCheck's Latest Release without Re-building.bash"
 - PATH="${HOME}/Software/shellcheck-stable:${PATH}"
 
-- ./"Utilities for Travis CI/Setup yamllint in Ubuntu lesser than 16.04.bash"
-- PATH="${HOME}/.local/bin:${PATH}"
+- pip install --user pre-commit
 
 ### You can run custom commands before the script/build step
 before_script:
-- yamllint *.yml .*.yml
-- ./"GNU Bash Automatic Checking Program for Git Projects/GNU Bash Automatic Checking Program for Git Projects.bash"
+- git diff-tree -z --no-commit-id --name-only -r HEAD | xargs --null pre-commit run --files
 
 ### Put your build scripts here
 script: true
