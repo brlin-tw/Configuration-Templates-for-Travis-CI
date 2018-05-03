@@ -27,7 +27,7 @@ git:
 #branches:
   # Black-listing approach
   #except:
-    #- no-ci
+  #- no-ci
 
 ## Build Environment Specification
 ### Whether to use faster container build(false) or flexible VM build(required)
