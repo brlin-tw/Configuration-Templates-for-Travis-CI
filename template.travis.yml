@@ -11,12 +11,13 @@ language: undefined
 
 ### Git related settings
 git:
-  # You may limit the depth of history cloned by Travis CI if you don't do Git operations depend on it(default: 50)
+  # You may limit the depth of history cloned by Travis CI if you don't depend on it(default: 50)
+  # You may also remove the depth limitation entirely by setting the `depth` key to `false
   # https://docs.travis-ci.com/user/customizing-the-build/#Git-Clone-Depth
   depth: 3
-  # Whether or not to clone the submodules
+  # Travis CI clones git submodules recursively by default
   # https://docs.travis-ci.com/user/customizing-the-build/#Git-Submodules
-  submodules: true
+  #submodules: false
   # Whether to download Git Large File Storage assets
   # https://docs.travis-ci.com/user/customizing-the-build/#Git-LFS-Skip-Smudge
   lfs_skip_smudge: false
