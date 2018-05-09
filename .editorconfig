@@ -21,6 +21,6 @@ trim_trailing_whitespace = true
 ### Trailing whitespace means manual linebreaks
 trim_trailing_whitespace = false
 
-[*.{yml,yaml}]
+[*.{yml,yaml,yamllint}]
 indent_style = space
 indent_size = 2
