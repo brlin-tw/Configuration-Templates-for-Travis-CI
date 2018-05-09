@@ -45,14 +45,14 @@ rules:
   # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.comments
   comments:
     level: warning
-    # PATCH: Comments without separate space are disabled content
+    # PATCHED: Comments without separate space are disabled content
     require-starting-space: false
-    # PATCH: We're good with 1
+    # PATCHED: We're good with 1
     min-spaces-from-content: 1
 
   # Use this rule to force comments to be indented like content.
   # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.comments_indentation
-  # PATCH: False positives, disabled
+  # PATCHED: False positives, disabled
   comments-indentation: disable
     #level: warning
 
@@ -63,7 +63,7 @@ rules:
   # Use this rule to require or forbid the use of document start marker (`---`).
   # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.document_start
   document-start:
-    # PATCH: Travis CI doesn't allow documents with document start markers
+    # PATCHED: Travis CI doesn't allow documents with document start markers
     # https://github.com/travis-ci/travis-ci/issues/9600
     level: error
     present: false
