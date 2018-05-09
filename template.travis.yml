@@ -1,3 +1,5 @@
+%YAML 1.2
+---
 # Travis CI Configuration
 # https://docs.travis-ci.com
 # This file is in YAML data serialization language.
