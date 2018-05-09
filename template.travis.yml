@@ -27,7 +27,7 @@ git:
 #branches:
   # Black-listing approach
   #except:
-  #- no-ci
+    #- no-ci
 
 ## Build Environment Specification
 ### Whether to use faster container build(false) or flexible VM build(required)
@@ -40,7 +40,7 @@ dist: trusty
 ### Services pre-installed in the CI environment to start up
 ### https://docs.travis-ci.com/user/database-setup/#Starting-Services
 #services:
-#- mysql
+  #- mysql
 
 ## The Build Lifecycle
 ## https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
@@ -55,47 +55,47 @@ dist: trusty
     # Software sources to be added
     # https://github.com/travis-ci/apt-source-whitelist
     #sources:
-    #- ubuntu-toolchain-r-test
+      #- ubuntu-toolchain-r-test
 
     # Software packages to be installed
     #packages:
-    #- libpng12-dev
+      #- libpng12-dev
 
   # Hostname can be customized via hosts addon
   # https://docs.travis-ci.com/user/customizing-the-build/#Custom-Hostnames
   #hosts: true
-  #- mysite.com
+    #- mysite.com
 
 ### You can run custom commands before the installation step
 before_install: true
-# Configure any third-party software sources(requires VM build environment)
-#- sudo add-apt-repository universe
-#- sudo add-apt-repository ppa:libreoffice/ppa
+  # Configure any third-party software sources(requires VM build environment)
+  #- sudo add-apt-repository universe
+  #- sudo add-apt-repository ppa:libreoffice/ppa
 
-# Update package cache if package installing is required(requires VM build environment)
-# https://docs.travis-ci.com/user/installing-dependencies/#Installing-Packages-from-a-custom-APT-repository
-#- sudo apt-get -qq update
+  # Update package cache if package installing is required(requires VM build environment)
+  # https://docs.travis-ci.com/user/installing-dependencies/#Installing-Packages-from-a-custom-APT-repository
+  #- sudo apt-get -qq update
 
 ### Install/Setup any required dependencies used in continuous integration
 ### https://docs.travis-ci.com/user/installing-dependencies/
 install: true
-# Traditional package installing(requires VM build environment)
-#- sudo apt-get install
+  # Traditional package installing(requires VM build environment)
+  #- sudo apt-get install
 
-# Sometimes dependencies needs to be build from source code and install/setup to use it
-# https://docs.travis-ci.com/user/installing-dependencies/#Installing-Projects-from-Source
+  # Sometimes dependencies needs to be build from source code and install/setup to use it
+  # https://docs.travis-ci.com/user/installing-dependencies/#Installing-Projects-from-Source
 
 ### You can run custom commands before the script/build step
 before_script: true
-#- ./prepare-building
+  #- ./prepare-building
 
 ### Put your build scripts here
 script: true
-#- ./build
+  #- ./build
 
 ### You can remove files that are not needed for caching here
 before_cache: true
-#- rm $HOME/.cabal/logs/build.log
+  #- rm $HOME/.cabal/logs/build.log
 
 ### Caches non-variating contents to speed up build
 #cache:
@@ -115,13 +115,13 @@ before_deploy: true
 ### https://docs.travis-ci.com/user/deployment/
 #deploy:
   #- provider: undefined
-     #on:
-       #branch: master
-       #tags: true
+    #on:
+      #branch: master
+      #tags: true
   #- provider: undefined
-     #on:
-       #branch: master
-       #tags: true
+    #on:
+      #branch: master
+      #tags: true
 
 ### You can run custom commands after the deploy step
 after_deploy: true
