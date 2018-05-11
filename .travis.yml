@@ -1,3 +1,7 @@
+%YAML 1.1
+# Currently Travis CI only conforms to v1.1 YAML spec.
+# Refer https://github.com/travis-ci/travis-ci/issues/9600 for details
+---
 # Travis CI Configuration
 # https://docs.travis-ci.com
 # This file is in YAML data serialization language.

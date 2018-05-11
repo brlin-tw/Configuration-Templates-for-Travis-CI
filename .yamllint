@@ -62,11 +62,11 @@ rules:
 
   # Use this rule to require or forbid the use of document start marker (`---`).
   # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.document_start
-  document-start:
-    # PATCHED: Travis CI doesn't allow documents with document start markers
-    # https://github.com/travis-ci/travis-ci/issues/9600
-    level: error
-    present: false
+  # PATCHED: Travis CI allow documents with document start markers with v1.1 YAML directive, but doesn't mentions it
+  # https://github.com/travis-ci/travis-ci/issues/9600
+  document-start: disable
+    #level: warning
+    #present: true
 
   # Use this rule to set a maximal number of allowed consecutive blank lines.
   # https://yamllint.readthedocs.io/en/stable/rules.html#module-yamllint.rules.empty_lines
