@@ -8,12 +8,15 @@
 # http://yaml.org/
 # This file is based on Configuration Templates for Travis CI
 # https://github.com/Lin-Buo-Ren/Configuration-Templates-for-Travis-CI
-## Project-specific settings
-### Main programming language used in the project
-### https://docs.travis-ci.com/user/languages
+# Copyright 2020 林博仁(Buo-ren, Lin) <Buo.Ren.Lin@gmail.com>
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+# Project-specific settings #
+# Main programming language used in the project
+# https://docs.travis-ci.com/user/languages
 language: undefined
 
-### Git related settings
+# Git related settings #
 git:
   # You may limit the depth of history cloned by Travis CI if you don't depend on it(default: 50)
   # You may also remove the depth limitation entirely by setting the `depth` key to `false
@@ -26,31 +29,31 @@ git:
   # https://docs.travis-ci.com/user/customizing-the-build/#Git-LFS-Skip-Smudge
   lfs_skip_smudge: false
 
-### Limit Git branches to be include in continuous integration, by default all branches with the .travis.yml file will be included
-### https://docs.travis-ci.com/user/customizing-the-build/#Building-Specific-Branches
+# Limit Git branches to be include in continuous integration, by default all branches with the .travis.yml file will be included
+# https://docs.travis-ci.com/user/customizing-the-build/#Building-Specific-Branches
 #branches:
   # Black-listing approach
   #except:
     #- no-ci
 
-## Build Environment Specification
-### Whether to use faster container build(false) or flexible VM build(required)
-### NOTE: `sudo` is not available in container build!
+# Build Environment Specification #
+# Whether to use faster container build(false) or flexible VM build(required)
+# NOTE: `sudo` is not available in container build!
 sudo: false
 
-### Selection of ubuntu release for build environment
+# Selection of ubuntu release for build environment
 dist: trusty
 
-### Services pre-installed in the CI environment to start up
-### https://docs.travis-ci.com/user/database-setup/#Starting-Services
+# Services pre-installed in the CI environment to start up
+# https://docs.travis-ci.com/user/database-setup/#Starting-Services
 #services:
   #- mysql
 
-## The Build Lifecycle
-## https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
-## NOTE: Enable each phases by removing the `true` command after each key's colon
+# The Build Lifecycle
+# https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
+# NOTE: Enable each phases by removing the `true` command after each key's colon
 
-### Addons
+# Addons #
 #addons:
   # apt_packages addon allows container build to install limited software sources and packages in the following whitelists to the system using APT:
   # https://github.com/travis-ci/apt-source-whitelist
@@ -70,7 +73,7 @@ dist: trusty
   #hosts: true
     #- mysite.com
 
-### You can run custom commands before the installation step
+# You can run custom commands before the installation step
 before_install: true
   # Configure any third-party software sources(requires VM build environment)
   #- sudo add-apt-repository universe
@@ -80,8 +83,8 @@ before_install: true
   # https://docs.travis-ci.com/user/installing-dependencies/#Installing-Packages-from-a-custom-APT-repository
   #- sudo apt-get -qq update
 
-### Install/Setup any required dependencies used in continuous integration
-### https://docs.travis-ci.com/user/installing-dependencies/
+# Install/Setup any required dependencies used in continuous integration
+# https://docs.travis-ci.com/user/installing-dependencies/
 install: true
   # Traditional package installing(requires VM build environment)
   #- sudo apt-get install
@@ -89,34 +92,34 @@ install: true
   # Sometimes dependencies needs to be build from source code and install/setup to use it
   # https://docs.travis-ci.com/user/installing-dependencies/#Installing-Projects-from-Source
 
-### You can run custom commands before the script/build step
+# You can run custom commands before the script/build step
 before_script: true
   #- ./prepare-building
 
-### Put your build scripts here
+# Put your build scripts here
 script: true
   #- ./build
 
-### You can remove files that are not needed for caching here
+# You can remove files that are not needed for caching here
 before_cache: true
   #- rm $HOME/.cabal/logs/build.log
 
-### Caches non-variating contents to speed up build
+# Caches non-variating contents to speed up build
 #cache:
   #directories:
   #- $HOME/.cabal
 
-### Commands if build phase fails
+# Commands if build phase fails
 after_failure: true
 
-### Commands if build phase successes
+# Commands if build phase successes
 after_success: true
 
-### You can run custom commands before the deploy step
+# You can run custom commands before the deploy step
 before_deploy: true
 
-### Software deployment phase
-### https://docs.travis-ci.com/user/deployment/
+# Software deployment phase
+# https://docs.travis-ci.com/user/deployment/
 #deploy:
   #- provider: undefined
     #on:
@@ -127,8 +130,8 @@ before_deploy: true
       #branch: master
       #tags: true
 
-### You can run custom commands after the deploy step
+# You can run custom commands after the deploy step
 after_deploy: true
 
-### You can run custom commands after everything is done
+# You can run custom commands after everything is done
 after_script: true

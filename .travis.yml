@@ -8,12 +8,15 @@
 # http://yaml.org/
 # This file is based on Configuration Templates for Travis CI
 # https://github.com/Lin-Buo-Ren/Configuration-Templates-for-Travis-CI
-## Project-specific settings
-### Main programming language used in the project
-### https://docs.travis-ci.com/user/languages
+# Copyright 2020 林博仁(Buo-ren, Lin) <Buo.Ren.Lin@gmail.com>
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+# Project-specific settings #
+# Main programming language used in the project
+# https://docs.travis-ci.com/user/languages
 language: yaml
 
-### Git related settings
+# Git related settings #
 git:
   # You may limit the depth of history cloned by Travis CI if you don't do Git operations depend on it(default: 50)
   # https://docs.travis-ci.com/user/customizing-the-build/#Git-Clone-Depth
@@ -25,62 +28,63 @@ git:
   # https://docs.travis-ci.com/user/customizing-the-build/#Git-LFS-Skip-Smudge
   lfs_skip_smudge: false
 
-## Build Environment Specification
-### Whether to use faster container build(false) or flexible VM build(required)
-### NOTE: `sudo` is not available in container build!
+# Build Environment Specification #
+# Whether to use faster container build(false) or flexible VM build(required)
+# NOTE: `sudo` is not available in container build!
 sudo: false
 
-### Selection of ubuntu release for build environment
+# Selection of ubuntu release for build environment
 dist: trusty
 
-## The Build Lifecycle
-## https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
-### Addons(?)
+# The Build Lifecycle #
+# https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
+
+# Addons(?) #
 addons:
   apt:
     # Software packages to be installed
     packages:
-    - realpath # script dependencies
+      - realpath # script dependencies
 
-### You can run custom commands before the installation step
+# You can run custom commands before the installation step
 before_install:
-- git submodule init 'Utilities for Travis CI'
-- git submodule update --depth=30
+  - git submodule init 'Utilities for Travis CI'
+  - git submodule update --depth=30
 
-### Install/Setup any required dependencies used in continuous integration
-### https://docs.travis-ci.com/user/installing-dependencies/
+# Install/Setup any required dependencies used in continuous integration
+# https://docs.travis-ci.com/user/installing-dependencies/
 install:
-#### Sometimes dependencies needs to be build from source code and install/setup to use it
-#### https://docs.travis-ci.com/user/installing-dependencies/#Installing-Projects-from-Source
-- ./"Utilities for Travis CI/Setup ShellCheck's Latest Release without Re-building.bash"
-- PATH="${HOME}/Software/shellcheck-stable:${PATH}"
+  # Sometimes dependencies needs to be build from source code and install/setup to use it
+  # https://docs.travis-ci.com/user/installing-dependencies/#Installing-Projects-from-Source
+  - ./"Utilities for Travis CI/Setup ShellCheck's Latest Release without Re-building.bash"
+  - PATH="${HOME}/Software/shellcheck-stable:${PATH}"
 
-- pip install --user pre-commit
+  - pip install --user pre-commit
 
-### You can run custom commands before the script/build step
+# You can run custom commands before the script/build step
 before_script:
-- git diff-tree -z --no-commit-id --name-only -r HEAD | xargs --null pre-commit run --files
+  - git diff-tree -z --no-commit-id --name-only -r HEAD | xargs --null pre-commit run --files
 
-### Put your build scripts here
+# Put your build scripts here
 script: true
 
-### You can remove files that are not needed for caching here
+# You can remove files that are not needed for caching here
 before_cache: true
 
-### Caches non-variating contents to speed up build
+# Caches non-variating contents to speed up build
 cache:
   pip: true
   directories:
-  - $HOME/Software
+    - $HOME/Software
 
-### Commands if build phase fails
+# Commands if build phase fails
 after_failure: true
 
-### Commands if build phase successes
+# Commands if build phase successes
 after_success: true
 
 before_deploy:
-- ./Release.bash
+  - ./Release.bash
 
 deploy:
   provider: releases
